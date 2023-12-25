@@ -1,0 +1,18 @@
+name: Run Custom Command
+
+on:
+  workflow_dispatch:
+    inputs:
+      cmd:
+        description: 'The command you want to run'
+        required: true
+        default: 'echo "Hello, World!"'
+
+jobs:
+  run-command:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Execute custom command
+        run: ${{ github.event.inputs.cmd }}
