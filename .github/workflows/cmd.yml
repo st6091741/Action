@@ -1,4 +1,4 @@
-name: Run Command and Set Output
+name: Run Custom Command
 
 on:
   workflow_dispatch:
@@ -11,18 +11,8 @@ on:
 jobs:
   run-command:
     runs-on: ubuntu-latest
-    outputs:
-      result: ${{ steps.set_output.outputs.result }}
     steps:
       - uses: actions/checkout@v3
       
       - name: Execute custom command
-        id: exec_cmd
-        run: |
-          output=$( ${{ github.event.inputs.cmd }} )
-          echo "::set-output name=result::$output"
-
-      - name: Use the output
-        run: |
-          result="${{ steps.exec_cmd.outputs.result }}"
-          echo "The result of the command was: $result"
+        run: ${{ github.event.inputs.cmd }}
