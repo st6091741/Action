@@ -8,7 +8,7 @@ on:
       CMD:
         description: 'The command you want to run'
         required: false
-        default: 'echo "Hello, World!"'
+        default: ''
 
 jobs:
   run-command:
