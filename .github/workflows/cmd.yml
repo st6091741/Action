@@ -7,7 +7,7 @@ on:
     inputs:
       CMD:
         description: 'The command you want to run'
-        required: true
+        required: false
         default: 'echo "Hello, World!"'
 
 jobs:
