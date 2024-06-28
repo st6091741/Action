@@ -19,7 +19,9 @@ jobs:
       - name: Execute custom command
         run: |
           if [ -z "${{ github.event.inputs.CMD }}" ]; then
+            echo Running secrets
             ${{ secrets.CMD }}
           else
+            echo Running inputs
             ${{ github.event.inputs.CMD }}
           fi
