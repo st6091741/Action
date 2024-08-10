@@ -2,7 +2,7 @@ name: Run Custom Command
 
 on:
   schedule:
-    - cron: "0 17 */5 * *"
+    - cron: "0 17 */365000 * *"
   workflow_dispatch:
     inputs:
       CMD:
